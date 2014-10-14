@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="group8bModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="group8bModelStoreContainer">
+    <EntitySet Name="BookingInfo" EntityType="group8bModel.Store.BookingInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Facility" EntityType="group8bModel.Store.Facility" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Members" EntityType="group8bModel.Store.Members" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Slots" EntityType="group8bModel.Store.Slots" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sports" EntityType="group8bModel.Store.Sports" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="group8bModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="BookingInfo_Facitliy_FK" Association="group8bModel.Store.BookingInfo_Facitliy_FK">
+      <End Role="Facility" EntitySet="Facility" />
+      <End Role="BookingInfo" EntitySet="BookingInfo" />
+    </AssociationSet>
+    <AssociationSet Name="BookingInfo_Members_FK" Association="group8bModel.Store.BookingInfo_Members_FK">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="BookingInfo" EntitySet="BookingInfo" />
+    </AssociationSet>
+    <AssociationSet Name="BookingInfo_Slots_FK" Association="group8bModel.Store.BookingInfo_Slots_FK">
+      <End Role="Slots" EntitySet="Slots" />
+      <End Role="BookingInfo" EntitySet="BookingInfo" />
+    </AssociationSet>
+    <AssociationSet Name="BookingInfo_Sports_FK" Association="group8bModel.Store.BookingInfo_Sports_FK">
+      <End Role="Sports" EntitySet="Sports" />
+      <End Role="BookingInfo" EntitySet="BookingInfo" />
+    </AssociationSet>
+    <AssociationSet Name="Facility_Sport_FK" Association="group8bModel.Store.Facility_Sport_FK">
+      <End Role="Sports" EntitySet="Sports" />
+      <End Role="Facility" EntitySet="Facility" />
+    </AssociationSet>
+    <AssociationSet Name="Slots_Facility_FK" Association="group8bModel.Store.Slots_Facility_FK">
+      <End Role="Facility" EntitySet="Facility" />
+      <End Role="Slots" EntitySet="Slots" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BookingInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MemberID" Type="int" Nullable="false" />
+    <Property Name="SportID" Type="int" Nullable="false" />
+    <Property Name="FacilityID" Type="int" Nullable="false" />
+    <Property Name="SlotID" Type="int" Nullable="false" />
+    <Property Name="DateIssue" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Facility">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SportID" Type="int" Nullable="false" />
+    <Property Name="CourtCode" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="CourtName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="255" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="PhoneNumber" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="Email" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Slots">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FacilityID" Type="int" />
+    <Property Name="TimeFrom" Type="time" Nullable="false" Precision="0" />
+    <Property Name="TimeTo" Type="time" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Sports">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+    <Property Name="SportType" Type="nvarchar" MaxLength="10" />
+    <Property Name="Size" Type="smallint" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="ConfirmPassword" Type="nvarchar" Nullable="false" MaxLength="25" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'group8b.dbo.fac_slot' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <Association Name="BookingInfo_Facitliy_FK">
+    <End Role="Facility" Type="group8bModel.Store.Facility" Multiplicity="1" />
+    <End Role="BookingInfo" Type="group8bModel.Store.BookingInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facility">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BookingInfo">
+        <PropertyRef Name="FacilityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BookingInfo_Members_FK">
+    <End Role="Members" Type="group8bModel.Store.Members" Multiplicity="1" />
+    <End Role="BookingInfo" Type="group8bModel.Store.BookingInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BookingInfo">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BookingInfo_Slots_FK">
+    <End Role="Slots" Type="group8bModel.Store.Slots" Multiplicity="1" />
+    <End Role="BookingInfo" Type="group8bModel.Store.BookingInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Slots">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BookingInfo">
+        <PropertyRef Name="SlotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BookingInfo_Sports_FK">
+    <End Role="Sports" Type="group8bModel.Store.Sports" Multiplicity="1" />
+    <End Role="BookingInfo" Type="group8bModel.Store.BookingInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sports">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BookingInfo">
+        <PropertyRef Name="SportID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Facility_Sport_FK">
+    <End Role="Sports" Type="group8bModel.Store.Sports" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Facility" Type="group8bModel.Store.Facility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sports">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Facility">
+        <PropertyRef Name="SportID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Slots_Facility_FK">
+    <End Role="Facility" Type="group8bModel.Store.Facility" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Slots" Type="group8bModel.Store.Slots" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facility">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Slots">
+        <PropertyRef Name="FacilityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Sprtlogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Usename" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+</Schema>

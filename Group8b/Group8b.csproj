@@ -36,6 +36,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +50,199 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewFacility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewFacility.Designer.cs">
+      <DependentUpon>AddNewFacility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewMember.Designer.cs">
+      <DependentUpon>AddNewMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewSlot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewSlot.Designer.cs">
+      <DependentUpon>AddNewSlot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewSport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewSport.Designer.cs">
+      <DependentUpon>AddNewSport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\Controller.cs" />
+    <Compile Include="App_Data\DBBroker.cs" />
+    <Compile Include="App_Data\EntityClass.cs" />
+    <Compile Include="App_Data\group8b.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>group8b.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="BookingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookingForm.Designer.cs">
+      <DependentUpon>BookingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CancelBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CancelBooking.Designer.cs">
+      <DependentUpon>CancelBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmBooking.Designer.cs">
+      <DependentUpon>ConfirmBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditFacility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditFacility.Designer.cs">
+      <DependentUpon>EditFacility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditMember.Designer.cs">
+      <DependentUpon>EditMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditSlot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditSlot.Designer.cs">
+      <DependentUpon>EditSlot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditSport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditSport.Designer.cs">
+      <DependentUpon>EditSport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enquiry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enquiry.Designer.cs">
+      <DependentUpon>Enquiry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facility.Designer.cs">
+      <DependentUpon>Facility.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Member.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Member.Designer.cs">
+      <DependentUpon>Member.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewBooking.Designer.cs">
+      <DependentUpon>NewBooking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Slot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Slot.Designer.cs">
+      <DependentUpon>Slot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sport.Designer.cs">
+      <DependentUpon>Sport.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewFacility.resx">
+      <DependentUpon>AddNewFacility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewMember.resx">
+      <DependentUpon>AddNewMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewSlot.resx">
+      <DependentUpon>AddNewSlot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewSport.resx">
+      <DependentUpon>AddNewSport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookingForm.resx">
+      <DependentUpon>BookingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CancelBooking.resx">
+      <DependentUpon>CancelBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfirmBooking.resx">
+      <DependentUpon>ConfirmBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditFacility.resx">
+      <DependentUpon>EditFacility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMember.resx">
+      <DependentUpon>EditMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditSlot.resx">
+      <DependentUpon>EditSlot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditSport.resx">
+      <DependentUpon>EditSport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enquiry.resx">
+      <DependentUpon>Enquiry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facility.resx">
+      <DependentUpon>Facility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Member.resx">
+      <DependentUpon>Member.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewBooking.resx">
+      <DependentUpon>NewBooking.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +252,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Slot.resx">
+      <DependentUpon>Slot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sport.resx">
+      <DependentUpon>Sport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="App_Data\group8b.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>group8b.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -73,6 +273,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,0 +1,499 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="group8bModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="group8bModelStoreContainer">
+          <EntitySet Name="BookingInfo" EntityType="group8bModel.Store.BookingInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Facility" EntityType="group8bModel.Store.Facility" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Members" EntityType="group8bModel.Store.Members" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Slots" EntityType="group8bModel.Store.Slots" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sports" EntityType="group8bModel.Store.Sports" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="group8bModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="BookingInfo_Facitliy_FK" Association="group8bModel.Store.BookingInfo_Facitliy_FK">
+            <End Role="Facility" EntitySet="Facility" />
+            <End Role="BookingInfo" EntitySet="BookingInfo" />
+          </AssociationSet>
+          <AssociationSet Name="BookingInfo_Members_FK" Association="group8bModel.Store.BookingInfo_Members_FK">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="BookingInfo" EntitySet="BookingInfo" />
+          </AssociationSet>
+          <AssociationSet Name="BookingInfo_Slots_FK" Association="group8bModel.Store.BookingInfo_Slots_FK">
+            <End Role="Slots" EntitySet="Slots" />
+            <End Role="BookingInfo" EntitySet="BookingInfo" />
+          </AssociationSet>
+          <AssociationSet Name="BookingInfo_Sports_FK" Association="group8bModel.Store.BookingInfo_Sports_FK">
+            <End Role="Sports" EntitySet="Sports" />
+            <End Role="BookingInfo" EntitySet="BookingInfo" />
+          </AssociationSet>
+          <AssociationSet Name="Facility_Sport_FK" Association="group8bModel.Store.Facility_Sport_FK">
+            <End Role="Sports" EntitySet="Sports" />
+            <End Role="Facility" EntitySet="Facility" />
+          </AssociationSet>
+          <AssociationSet Name="Slots_Facility_FK" Association="group8bModel.Store.Slots_Facility_FK">
+            <End Role="Facility" EntitySet="Facility" />
+            <End Role="Slots" EntitySet="Slots" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BookingInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="SportID" Type="int" Nullable="false" />
+          <Property Name="FacilityID" Type="int" Nullable="false" />
+          <Property Name="SlotID" Type="int" Nullable="false" />
+          <Property Name="DateIssue" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Facility">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SportID" Type="int" Nullable="false" />
+          <Property Name="CourtCode" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="CourtName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Members">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="PhoneNumber" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="Email" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Slots">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FacilityID" Type="int" />
+          <Property Name="TimeFrom" Type="time" Nullable="false" Precision="0" />
+          <Property Name="TimeTo" Type="time" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Sports">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="SportType" Type="nvarchar" MaxLength="10" />
+          <Property Name="Size" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="ConfirmPassword" Type="nvarchar" Nullable="false" MaxLength="25" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'group8b.dbo.fac_slot' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <Association Name="BookingInfo_Facitliy_FK">
+          <End Role="Facility" Type="group8bModel.Store.Facility" Multiplicity="1" />
+          <End Role="BookingInfo" Type="group8bModel.Store.BookingInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facility">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BookingInfo">
+              <PropertyRef Name="FacilityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BookingInfo_Members_FK">
+          <End Role="Members" Type="group8bModel.Store.Members" Multiplicity="1" />
+          <End Role="BookingInfo" Type="group8bModel.Store.BookingInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BookingInfo">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BookingInfo_Slots_FK">
+          <End Role="Slots" Type="group8bModel.Store.Slots" Multiplicity="1" />
+          <End Role="BookingInfo" Type="group8bModel.Store.BookingInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Slots">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BookingInfo">
+              <PropertyRef Name="SlotID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BookingInfo_Sports_FK">
+          <End Role="Sports" Type="group8bModel.Store.Sports" Multiplicity="1" />
+          <End Role="BookingInfo" Type="group8bModel.Store.BookingInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sports">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BookingInfo">
+              <PropertyRef Name="SportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Facility_Sport_FK">
+          <End Role="Sports" Type="group8bModel.Store.Sports" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Facility" Type="group8bModel.Store.Facility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sports">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Facility">
+              <PropertyRef Name="SportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Slots_Facility_FK">
+          <End Role="Facility" Type="group8bModel.Store.Facility" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Slots" Type="group8bModel.Store.Slots" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facility">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Slots">
+              <PropertyRef Name="FacilityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Sprtlogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Usename" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+        </Function>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="group8bModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="group8bEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BookingInfoes" EntityType="group8bModel.BookingInfo" />
+          <EntitySet Name="Facilities" EntityType="group8bModel.Facility" />
+          <EntitySet Name="Members" EntityType="group8bModel.Member" />
+          <EntitySet Name="Slots" EntityType="group8bModel.Slot" />
+          <EntitySet Name="Sports" EntityType="group8bModel.Sport" />
+          <EntitySet Name="Users" EntityType="group8bModel.User" />
+          <AssociationSet Name="BookingInfo_Facitliy_FK" Association="group8bModel.BookingInfo_Facitliy_FK">
+            <End Role="Facility" EntitySet="Facilities" />
+            <End Role="BookingInfo" EntitySet="BookingInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="BookingInfo_Members_FK" Association="group8bModel.BookingInfo_Members_FK">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="BookingInfo" EntitySet="BookingInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="BookingInfo_Slots_FK" Association="group8bModel.BookingInfo_Slots_FK">
+            <End Role="Slots" EntitySet="Slots" />
+            <End Role="BookingInfo" EntitySet="BookingInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="BookingInfo_Sports_FK" Association="group8bModel.BookingInfo_Sports_FK">
+            <End Role="Sports" EntitySet="Sports" />
+            <End Role="BookingInfo" EntitySet="BookingInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="Facility_Sport_FK" Association="group8bModel.Facility_Sport_FK">
+            <End Role="Sports" EntitySet="Sports" />
+            <End Role="Facility" EntitySet="Facilities" />
+          </AssociationSet>
+          <AssociationSet Name="Slots_Facility_FK" Association="group8bModel.Slots_Facility_FK">
+            <End Role="Facility" EntitySet="Facilities" />
+            <End Role="Slots" EntitySet="Slots" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BookingInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="SportID" Type="Int32" Nullable="false" />
+          <Property Name="FacilityID" Type="Int32" Nullable="false" />
+          <Property Name="SlotID" Type="Int32" Nullable="false" />
+          <Property Name="DateIssue" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Facility" Relationship="group8bModel.BookingInfo_Facitliy_FK" FromRole="BookingInfo" ToRole="Facility" />
+          <NavigationProperty Name="Member" Relationship="group8bModel.BookingInfo_Members_FK" FromRole="BookingInfo" ToRole="Members" />
+          <NavigationProperty Name="Slot" Relationship="group8bModel.BookingInfo_Slots_FK" FromRole="BookingInfo" ToRole="Slots" />
+          <NavigationProperty Name="Sport" Relationship="group8bModel.BookingInfo_Sports_FK" FromRole="BookingInfo" ToRole="Sports" />
+        </EntityType>
+        <EntityType Name="Facility">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SportID" Type="Int32" Nullable="false" />
+          <Property Name="CourtCode" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="CourtName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="BookingInfoes" Relationship="group8bModel.BookingInfo_Facitliy_FK" FromRole="Facility" ToRole="BookingInfo" />
+          <NavigationProperty Name="Sport" Relationship="group8bModel.Facility_Sport_FK" FromRole="Facility" ToRole="Sports" />
+          <NavigationProperty Name="Slots" Relationship="group8bModel.Slots_Facility_FK" FromRole="Facility" ToRole="Slots" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="PostalCode" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="BookingInfoes" Relationship="group8bModel.BookingInfo_Members_FK" FromRole="Members" ToRole="BookingInfo" />
+        </EntityType>
+        <EntityType Name="Slot">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FacilityID" Type="Int32" />
+          <Property Name="TimeFrom" Type="Time" Nullable="false" />
+          <Property Name="TimeTo" Type="Time" Nullable="false" />
+          <NavigationProperty Name="BookingInfoes" Relationship="group8bModel.BookingInfo_Slots_FK" FromRole="Slots" ToRole="BookingInfo" />
+          <NavigationProperty Name="Facility" Relationship="group8bModel.Slots_Facility_FK" FromRole="Slots" ToRole="Facility" />
+        </EntityType>
+        <EntityType Name="Sport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="SportType" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="Size" Type="Int16" />
+          <NavigationProperty Name="BookingInfoes" Relationship="group8bModel.BookingInfo_Sports_FK" FromRole="Sports" ToRole="BookingInfo" />
+          <NavigationProperty Name="Facilities" Relationship="group8bModel.Facility_Sport_FK" FromRole="Sports" ToRole="Facility" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="ConfirmPassword" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <Association Name="BookingInfo_Facitliy_FK">
+          <End Role="Facility" Type="group8bModel.Facility" Multiplicity="1" />
+          <End Role="BookingInfo" Type="group8bModel.BookingInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facility">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BookingInfo">
+              <PropertyRef Name="FacilityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BookingInfo_Members_FK">
+          <End Role="Members" Type="group8bModel.Member" Multiplicity="1" />
+          <End Role="BookingInfo" Type="group8bModel.BookingInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BookingInfo">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BookingInfo_Slots_FK">
+          <End Role="Slots" Type="group8bModel.Slot" Multiplicity="1" />
+          <End Role="BookingInfo" Type="group8bModel.BookingInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Slots">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BookingInfo">
+              <PropertyRef Name="SlotID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BookingInfo_Sports_FK">
+          <End Role="Sports" Type="group8bModel.Sport" Multiplicity="1" />
+          <End Role="BookingInfo" Type="group8bModel.BookingInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sports">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BookingInfo">
+              <PropertyRef Name="SportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Facility_Sport_FK">
+          <End Role="Sports" Type="group8bModel.Sport" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Facility" Type="group8bModel.Facility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sports">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Facility">
+              <PropertyRef Name="SportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Slots_Facility_FK">
+          <End Role="Facility" Type="group8bModel.Facility" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Slots" Type="group8bModel.Slot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facility">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Slots">
+              <PropertyRef Name="FacilityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="group8bModelStoreContainer" CdmEntityContainer="group8bEntities">
+          <EntitySetMapping Name="BookingInfoes">
+            <EntityTypeMapping TypeName="group8bModel.BookingInfo">
+              <MappingFragment StoreEntitySet="BookingInfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="SportID" ColumnName="SportID" />
+                <ScalarProperty Name="FacilityID" ColumnName="FacilityID" />
+                <ScalarProperty Name="SlotID" ColumnName="SlotID" />
+                <ScalarProperty Name="DateIssue" ColumnName="DateIssue" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Facilities">
+            <EntityTypeMapping TypeName="group8bModel.Facility">
+              <MappingFragment StoreEntitySet="Facility">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SportID" ColumnName="SportID" />
+                <ScalarProperty Name="CourtCode" ColumnName="CourtCode" />
+                <ScalarProperty Name="CourtName" ColumnName="CourtName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="group8bModel.Member">
+              <MappingFragment StoreEntitySet="Members">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Slots">
+            <EntityTypeMapping TypeName="group8bModel.Slot">
+              <MappingFragment StoreEntitySet="Slots">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FacilityID" ColumnName="FacilityID" />
+                <ScalarProperty Name="TimeFrom" ColumnName="TimeFrom" />
+                <ScalarProperty Name="TimeTo" ColumnName="TimeTo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sports">
+            <EntityTypeMapping TypeName="group8bModel.Sport">
+              <MappingFragment StoreEntitySet="Sports">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SportType" ColumnName="SportType" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="group8bModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="group8b">
+        <EntityTypeShape EntityType="group8bModel.BookingInfo" Width="1.5" PointX="7.5" PointY="5.375" Height="3.6690071614583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="group8bModel.Facility" Width="1.5" PointX="3" PointY="7.875" Height="2.9774788411458317" IsExpanded="true" />
+        <EntityTypeShape EntityType="group8bModel.Member" Width="1.5" PointX="5.25" PointY="3.75" Height="2.7469694010416656" IsExpanded="true" />
+        <EntityTypeShape EntityType="group8bModel.Slot" Width="1.5" PointX="5.25" PointY="8" Height="2.5164599609374996" IsExpanded="true" />
+        <EntityTypeShape EntityType="group8bModel.Sport" Width="1.5" PointX="0.75" PointY="3.5" Height="2.7469694010416656" IsExpanded="true" />
+        <EntityTypeShape EntityType="group8bModel.User" Width="1.5" PointX="2.75" PointY="0.75" Height="2.0554410807291665" IsExpanded="true" />
+        <AssociationConnector Association="group8bModel.BookingInfo_Facitliy_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="7.90625" />
+          <ConnectorPoint PointX="7.5" PointY="7.90625" />
+        </AssociationConnector>
+        <AssociationConnector Association="group8bModel.BookingInfo_Members_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="5.9359847005208328" />
+          <ConnectorPoint PointX="7.5" PointY="5.9359847005208328" />
+        </AssociationConnector>
+        <AssociationConnector Association="group8bModel.BookingInfo_Slots_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="8.5220035807291659" />
+          <ConnectorPoint PointX="7.5" PointY="8.5220035807291659" />
+        </AssociationConnector>
+        <AssociationConnector Association="group8bModel.BookingInfo_Sports_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="3.59375" />
+          <ConnectorPoint PointX="8.25" PointY="3.59375" />
+          <ConnectorPoint PointX="8.25" PointY="5.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="group8bModel.Facility_Sport_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="6.2469694010416656" />
+          <ConnectorPoint PointX="1.5" PointY="9.3637394205729159" />
+          <ConnectorPoint PointX="3" PointY="9.3637394205729159" />
+        </AssociationConnector>
+        <AssociationConnector Association="group8bModel.Slots_Facility_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="9.25822998046875" />
+          <ConnectorPoint PointX="5.25" PointY="9.25822998046875" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

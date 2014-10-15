@@ -41,9 +41,9 @@
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblDate = new System.Windows.Forms.Label();
             this.txtDate = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -178,16 +178,6 @@
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnBack);
-            this.groupBox2.Controls.Add(this.btnConfirm);
-            this.groupBox2.Location = new System.Drawing.Point(104, 306);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(383, 63);
-            this.groupBox2.TabIndex = 15;
-            this.groupBox2.TabStop = false;
-            // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
@@ -206,11 +196,21 @@
             this.txtDate.Size = new System.Drawing.Size(123, 20);
             this.txtDate.TabIndex = 12;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnBack);
+            this.groupBox2.Controls.Add(this.btnConfirm);
+            this.groupBox2.Location = new System.Drawing.Point(104, 306);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(383, 63);
+            this.groupBox2.TabIndex = 15;
+            this.groupBox2.TabStop = false;
+            // 
             // ConfirmBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 517);
+            this.ClientSize = new System.Drawing.Size(638, 404);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "ConfirmBooking";

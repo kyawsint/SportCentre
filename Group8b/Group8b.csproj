@@ -100,6 +100,12 @@
     <Compile Include="CancelBooking.Designer.cs">
       <DependentUpon>CancelBooking.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConfirmBooking.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,17 +148,29 @@
     <Compile Include="Enquiry.Designer.cs">
       <DependentUpon>Enquiry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Facility.cs">
+    <Compile Include="Enquiry1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Facility.Designer.cs">
-      <DependentUpon>Facility.cs</DependentUpon>
+    <Compile Include="Enquiry1.designer.cs">
+      <DependentUpon>Enquiry1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="FacilityLookUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FacilityLookUp.Designer.cs">
+      <DependentUpon>FacilityLookUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewFacility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewFacility.Designer.cs">
+      <DependentUpon>ViewFacility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SportLookUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SportLookUp.designer.cs">
+      <DependentUpon>SportLookUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -166,11 +184,11 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Member.cs">
+    <Compile Include="ViewMember.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Member.Designer.cs">
-      <DependentUpon>Member.cs</DependentUpon>
+    <Compile Include="ViewMember.Designer.cs">
+      <DependentUpon>ViewMember.cs</DependentUpon>
     </Compile>
     <Compile Include="NewBooking.cs">
       <SubType>Form</SubType>
@@ -180,17 +198,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Slot.cs">
+    <Compile Include="ViewSlot.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Slot.Designer.cs">
-      <DependentUpon>Slot.cs</DependentUpon>
+    <Compile Include="ViewSlot.Designer.cs">
+      <DependentUpon>ViewSlot.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sport.cs">
+    <Compile Include="ViewSport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sport.Designer.cs">
-      <DependentUpon>Sport.cs</DependentUpon>
+    <Compile Include="ViewSport.Designer.cs">
+      <DependentUpon>ViewSport.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
@@ -213,6 +231,9 @@
     <EmbeddedResource Include="CancelBooking.resx">
       <DependentUpon>CancelBooking.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConfirmBooking.resx">
       <DependentUpon>ConfirmBooking.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,11 +255,17 @@
     <EmbeddedResource Include="Enquiry.resx">
       <DependentUpon>Enquiry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Facility.resx">
-      <DependentUpon>Facility.cs</DependentUpon>
+    <EmbeddedResource Include="Enquiry1.resx">
+      <DependentUpon>Enquiry1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FacilityLookUp.resx">
+      <DependentUpon>FacilityLookUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewFacility.resx">
+      <DependentUpon>ViewFacility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SportLookUp.resx">
+      <DependentUpon>SportLookUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -246,8 +273,8 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Member.resx">
-      <DependentUpon>Member.cs</DependentUpon>
+    <EmbeddedResource Include="ViewMember.resx">
+      <DependentUpon>ViewMember.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewBooking.resx">
       <DependentUpon>NewBooking.cs</DependentUpon>
@@ -260,12 +287,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Slot.resx">
-      <DependentUpon>Slot.cs</DependentUpon>
+    <EmbeddedResource Include="ViewSlot.resx">
+      <DependentUpon>ViewSlot.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sport.resx">
-      <DependentUpon>Sport.cs</DependentUpon>
+    <EmbeddedResource Include="ViewSport.resx">
+      <DependentUpon>ViewSport.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="App_Data\group8b.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -282,7 +310,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\Capture.PNG" />
+    <Content Include="Resources\Capture2.PNG" />
+    <Content Include="Resources\sssc_logo_776x600.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

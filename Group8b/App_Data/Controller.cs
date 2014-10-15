@@ -11,11 +11,6 @@ namespace Group8b.App_Data
     {
     }
 
-    class BookingInfoController
-    { 
-        
-    }
-
     class SportController
     {
         SportBroker sb = new SportBroker();
@@ -28,6 +23,27 @@ namespace Group8b.App_Data
         public Sport GetSport(string sname)
         {
             return sb.GetSport(sname);
+        }
+
+        //public List<Sport> GetSports()      //Getsports
+        //{
+        //    var spo = sb.GetAll();
+        //    return spo;
+        //}
+
+        //public Sport GetSport(string sname)   //Getsport
+        //{
+        //    return sb.GetSport(sname);
+        //}
+
+        public void UpdateSport(int id, Sport s)   //update
+        {
+            sb.UpdateSport(id, s);
+        }
+
+        public void DeleteSport(int id, Sport s)   //delete
+        {
+            sb.DeleteSport(id, s);
         }
     }
 
@@ -44,6 +60,27 @@ namespace Group8b.App_Data
         {
             return fb.GetFacilities(SportID);
         }
+
+        public List<Facility> GetFacilities()     //Getfacilities
+        {
+            var fac = fb.GetAll();
+            return fac;
+        }
+
+        //public Facility GetFacility(string courtname)  //Getfacility
+        //{
+        //    return fb.GetFacility(courtname);
+        //}
+
+        public void UpdateFacility(int id, Facility f)  //update
+        {
+            fb.UpdateFacility(id, f);
+        }
+
+        public void DeleteFacility(int id, Facility f)  //delete
+        {
+            fb.DeleteFacility(id, f);
+        }
     }
 
     class SlotController
@@ -53,6 +90,17 @@ namespace Group8b.App_Data
         public List<Slot> GetSlots(int facilityid)
         {
             return sb.GetSlots(facilityid);
+        }
+
+        public List<Slot> GetSlot()
+        {
+            var slo = sb.GetAll();
+            return slo;
+        }
+
+        public Member getSlot(string sName)
+        {
+            return sb.getSlot(sName);
         }
     }
 
@@ -73,6 +121,16 @@ namespace Group8b.App_Data
         public List<BookingInfo> GetBookingInfoes()
         {
             return bt.GetBookingInfoes();
+        }
+
+        public List<BookingInfo> GetBookingInfoes(DateTime date)
+        {
+            return bt.GetBookingInfoes(date);   
+        }
+
+        public List<BookingInfo> GetBookingInfoes(string memname)
+        {
+            return bt.GetBookingInfoes(Regex.Split(memname,"\r\n")[0]);
         }
 
         public void UpdateBookingInfo(int id, string status)
@@ -104,6 +162,45 @@ namespace Group8b.App_Data
         {
             Member m = mb.GetMember(Regex.Split(name, "\r\n")[0]);
             return m;
+        }
+    }
+
+    class UsersController
+    {
+        public bool Is_Valid_User(string Username, string Password)
+        {
+            UserBroker el = new UserBroker();
+            bool Flag = el.is_valid_user(Username, Password);
+            return Flag;
+        }
+        public bool Change_Password(string User_Name, string Confirm_Password)
+        {
+            UserBroker el = new UserBroker();
+            bool flag = el.change_password(User_Name, Confirm_Password);
+            return flag;
+        }
+        public bool Is_Valid_Member(string memname)
+        {
+            UserBroker el = new UserBroker();
+            bool Flag = el.is_valid_member(memname);
+            return Flag;
+        }
+        public void Delete_Booinginfo(int MemberId)
+        {
+            UserBroker el = new UserBroker();
+            el.delete_bookinginfo(MemberId);
+        }
+
+        public List<BookingInfo> View_Booinginfo(string memname)
+        {
+            UserBroker el = new UserBroker();
+            return el.view_bookinginfo(memname);
+        }
+        public void Delete_Booking(int li)
+        {
+            UserBroker el = new UserBroker();
+
+            el.delete_booking(li);
         }
     }
 }

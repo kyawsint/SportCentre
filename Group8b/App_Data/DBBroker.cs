@@ -45,6 +45,31 @@ namespace Group8b.App_Data
             var sname = (Sport)ctx.Sports.First(x => x.Name == name);
             return sname;
         }
+
+        public void UpdateSport(int id, Sport ss)               //update
+        {
+            Sport s = (from x in ctx.Sports
+                       where x.ID == id
+                       select x).Single();
+
+            s.Name = ss.Name;
+            s.SportType = ss.SportType;
+            s.Size = ss.Size;
+            s.Description = ss.Description;
+            ctx.SaveChanges();
+        }
+
+        public void DeleteSport(int id, Sport ss)           //delete
+        {
+            Sport s = (from x in ctx.Sports
+                       where x.ID == id
+                       select x).Single();
+
+
+            ss = ctx.Sports.Where(x => x.ID == s.ID).Single();
+            ctx.Sports.DeleteObject(ss);
+            ctx.SaveChanges();
+        }
     }
 
     class FacilityBroker
@@ -62,6 +87,51 @@ namespace Group8b.App_Data
             var fsport = (from x in ctx.Facilities where x.SportID == SportID select x).ToList();
             return fsport;
         }
+
+        public List<Facility> GetAll()                     //GetAll
+        {
+            var fs = from x in ctx.Facilities select x;
+            return fs.ToList();
+        }
+
+        //public List<Facility> GetAll(int SportID)         //with one parameter
+        //{
+        //    var fs = from x in ctx.Facilities
+        //             where x.SportID == SportID
+        //             select x;
+        //    return fs.ToList();
+
+        //}
+
+        //public Facility GetFacility(string courtname)     //GetFacility
+        //{
+        //    var fcourtname = (Facility)ctx.Facilities.First(x => x.CourtName == courtname);
+        //    return fcourtname;
+        //}
+
+        public void UpdateFacility(int id, Facility ff)   //Update
+        {
+            Facility f = (from x in ctx.Facilities
+                          where x.ID == id
+                          select x).Single();
+
+            f.SportID = ff.SportID;
+            f.CourtCode = ff.CourtCode;
+            f.CourtName = ff.CourtName;
+            f.Description = ff.Description;
+            ctx.SaveChanges();
+        }
+
+        public void DeleteFacility(int id, Facility ff)   //delete
+        {
+            Facility f = (from x in ctx.Facilities
+                          where x.ID == id
+                          select x).Single();
+
+            ff = ctx.Facilities.Where(x => x.ID == f.ID).Single();
+            ctx.Facilities.DeleteObject(ff);
+            ctx.SaveChanges();
+        }
     }
 
     class SlotBroker
@@ -72,6 +142,18 @@ namespace Group8b.App_Data
         {
             var sslot = (from x in ctx.Slots where x.FacilityID == facilityid select x).ToList();
             return sslot;
+        }
+
+        public List<Slot> GetAll()
+        {
+            var Slot = from x in ctx.Slots select x;
+            return Slot.ToList();
+        }
+
+        public Member getSlot(string sName)
+        {
+            var sloName = (Member)ctx.Members.First(x => x.Name == sName);
+            return sloName;
         }
     }
 
@@ -119,8 +201,20 @@ namespace Group8b.App_Data
 
         public List<BookingInfo> GetBookingInfoes()
         {
-            var booktrans = (from x in ctx.BookingInfoes where x.Status != "Confirmed" select x).ToList();
-            return booktrans;
+            var bookinfo = (from x in ctx.BookingInfoes where x.Status != "Confirmed" select x).ToList();
+            return bookinfo;
+        }
+
+        public List<BookingInfo> GetBookingInfoes(DateTime date)
+        {
+            var bookinfo = (from x in ctx.BookingInfoes where x.DateIssue == date.Date && x.Status!="Confirmed" select x).ToList();
+            return bookinfo;
+        }
+
+        public List<BookingInfo> GetBookingInfoes(string memname)
+        {
+            var bookinfo = (from x in ctx.BookingInfoes where x.Member.Name == memname && x.Status != "Confirmed" select x).ToList();
+            return bookinfo;
         }
 
         public List<BookTrans> GetBookTrans(DateTime date,int sportid)
@@ -224,6 +318,95 @@ namespace Group8b.App_Data
                 return 0;
             }
             return 1;
+        }
+    }
+
+    class UserBroker
+    {
+        group8bEntities context = new group8bEntities();
+        public bool is_valid_user(string username, string password)
+        {
+
+            var valid = from v in context.Users
+                        where v.Name == username && v.Password == password
+                        select v;
+            if (valid.Any())
+                return true;
+            else
+                return false;
+        }
+        public bool is_valid_member(string memname)
+        {
+            var valid = from v in context.Members
+                        where v.Name == memname
+                        select v;
+            if (valid.Any())
+                return true;
+            else
+                return false;
+        }
+        public bool change_password(string user_name, string confirm_password)
+        {
+
+            bool f = false;
+
+            context = new group8bEntities();
+            User u = new User();
+            var q = from o in context.Users
+                    where o.Name == user_name
+                    select o;
+
+            int count = q.Count();
+            User u1 = q.First<User>();
+            if (count == 1)
+            {
+                u1.Name = user_name;
+                u1.Password = confirm_password;
+                u1.ConfirmPassword = confirm_password;
+
+                context.SaveChanges();
+                f = true;
+
+            }
+
+            return f;
+        }
+        public void delete_bookinginfo(int memberid)
+        {
+            group8bEntities context = new group8bEntities();
+            var id = (from m in context.BookingInfoes
+                      where m.MemberID == memberid
+                      select m).First();
+
+            context.SaveChanges();
+        }
+
+        //internal void change_password(int MemberId)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        public List<BookingInfo> view_bookinginfo(string memname)
+        {
+            group8bEntities context = new group8bEntities();
+
+            List<BookingInfo> id = (from l in context.BookingInfoes
+                                    where l.Member.Name == memname && l.Status != "Confirmed"
+                                    select l).ToList();
+            return id;
+        }
+
+        public void delete_booking(int li)
+        {
+            group8bEntities context = new group8bEntities();
+            var del = from d in context.BookingInfoes
+                      where d.ID == li
+                      select d;
+            foreach (var d in del)
+            {
+                context.BookingInfoes.DeleteObject(d);
+            }
+            context.SaveChanges();
         }
     }
 }

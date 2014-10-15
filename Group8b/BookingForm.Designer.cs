@@ -54,7 +54,8 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(54, 30);
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(62, 22);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
             this.btnBack.TabIndex = 4;
@@ -66,15 +67,17 @@
             // 
             this.gb2.Controls.Add(this.btnBooking);
             this.gb2.Controls.Add(this.btnBack);
-            this.gb2.Location = new System.Drawing.Point(230, 450);
+            this.gb2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gb2.Location = new System.Drawing.Point(230, 460);
             this.gb2.Name = "gb2";
-            this.gb2.Size = new System.Drawing.Size(303, 69);
+            this.gb2.Size = new System.Drawing.Size(303, 56);
             this.gb2.TabIndex = 12;
             this.gb2.TabStop = false;
             // 
             // btnBooking
             // 
-            this.btnBooking.Location = new System.Drawing.Point(176, 30);
+            this.btnBooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBooking.Location = new System.Drawing.Point(184, 22);
             this.btnBooking.Name = "btnBooking";
             this.btnBooking.Size = new System.Drawing.Size(75, 23);
             this.btnBooking.TabIndex = 7;
@@ -92,6 +95,7 @@
             this.gb1.Controls.Add(this.lblSportName);
             this.gb1.Controls.Add(this.lblDate);
             this.gb1.Controls.Add(this.lblSize);
+            this.gb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb1.Location = new System.Drawing.Point(124, 2);
             this.gb1.Name = "gb1";
             this.gb1.Size = new System.Drawing.Size(477, 134);
@@ -100,34 +104,38 @@
             // 
             // txtsportname
             // 
+            this.txtsportname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtsportname.Location = new System.Drawing.Point(145, 47);
             this.txtsportname.Name = "txtsportname";
             this.txtsportname.ReadOnly = true;
-            this.txtsportname.Size = new System.Drawing.Size(220, 20);
+            this.txtsportname.Size = new System.Drawing.Size(220, 22);
             this.txtsportname.TabIndex = 12;
             // 
             // txtnoofpeople
             // 
+            this.txtnoofpeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnoofpeople.Location = new System.Drawing.Point(145, 102);
             this.txtnoofpeople.Name = "txtnoofpeople";
             this.txtnoofpeople.ReadOnly = true;
-            this.txtnoofpeople.Size = new System.Drawing.Size(72, 20);
+            this.txtnoofpeople.Size = new System.Drawing.Size(72, 22);
             this.txtnoofpeople.TabIndex = 11;
             // 
             // txtdate
             // 
+            this.txtdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdate.Location = new System.Drawing.Point(145, 73);
             this.txtdate.Name = "txtdate";
             this.txtdate.ReadOnly = true;
-            this.txtdate.Size = new System.Drawing.Size(163, 20);
+            this.txtdate.Size = new System.Drawing.Size(163, 22);
             this.txtdate.TabIndex = 10;
             // 
             // txtmemname
             // 
+            this.txtmemname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmemname.Location = new System.Drawing.Point(145, 16);
             this.txtmemname.Name = "txtmemname";
             this.txtmemname.ReadOnly = true;
-            this.txtmemname.Size = new System.Drawing.Size(220, 20);
+            this.txtmemname.Size = new System.Drawing.Size(220, 22);
             this.txtmemname.TabIndex = 9;
             // 
             // lblmemname
@@ -173,10 +181,11 @@
             // ddlCCourt
             // 
             this.ddlCCourt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlCCourt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ddlCCourt.FormattingEnabled = true;
             this.ddlCCourt.Location = new System.Drawing.Point(236, 153);
             this.ddlCCourt.Name = "ddlCCourt";
-            this.ddlCCourt.Size = new System.Drawing.Size(196, 21);
+            this.ddlCCourt.Size = new System.Drawing.Size(196, 24);
             this.ddlCCourt.TabIndex = 13;
             this.ddlCCourt.SelectedIndexChanged += new System.EventHandler(this.ddlCCourt_SelectedIndexChanged);
             // 
@@ -212,18 +221,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(85, 181);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
+            this.label1.Size = new System.Drawing.Size(118, 16);
             this.label1.TabIndex = 17;
             this.label1.Text = "Available Booking";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(513, 180);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.Size = new System.Drawing.Size(0, 16);
             this.label2.TabIndex = 18;
             // 
             // BookingForm

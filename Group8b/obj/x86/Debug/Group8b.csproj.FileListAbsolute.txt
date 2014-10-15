@@ -27,3 +27,4 @@ D:\ISS Workshop\github\CACS\sportcentre\Group8b\obj\x86\Debug\Group8b.Sport.reso
 D:\ISS Workshop\github\CACS\sportcentre\Group8b\obj\x86\Debug\Group8b.csprojResolveAssemblyReference.cache
 D:\ISS Workshop\github\CACS\sportcentre\Group8b\obj\x86\Debug\Group8b.BookingForm.resources
 D:\ISS Workshop\github\CACS\sportcentre\Group8b\obj\x86\Debug\Group8b.ConfirmBooking.resources
+D:\ISS Workshop\github\CACS\sportcentre\Group8b\obj\x86\Debug\Group8b.ConfirmBookingList.resources

@@ -22,6 +22,12 @@ namespace Group8b.App_Data
             var mem = (from x in ctx.Members select x).ToList();
             return mem;
         }
+
+        public Member GetMember(string mname)
+        {
+            var memname = (Member)(from x in ctx.Members where x.Name == mname select x).Single();
+            return memname;
+        }
     }
 
     class SportBroker
@@ -76,6 +82,7 @@ namespace Group8b.App_Data
         SqlConnection con;
         SqlCommand cmdselectbyp;
         SqlCommand cmdselectava;
+        SqlCommand cmdselectall;
         string cons = "data source=(local); initial catalog=group8b; integrated security=True";
 
         public BookTransBroker()
@@ -86,8 +93,8 @@ namespace Group8b.App_Data
                 " else status end as status from (select * from (select s.id as sportid, sl.id as slotid, fac.id as facilityid,"+
                 " fac.courtname as courtname, bi.dateissue as date, Concat(datepart(hour,TimeFrom),':00',' to ', datepart(hour,TimeTo),':00')"+
             " as Time, bi.status from slots sl left join facility fac on fac.id=sl.FacilityID left join Sports s on s.id=fac.SportID left join"+
-            " BookingInfo bi on bi.SlotID=sl.id and bi.FacilityID=fac.ID)a where facilityid not in (select facilityid from BookingInfo"+
-            " where date=@date) and slotid not in(select slotid from BookingInfo where date=@date)"+ 
+            " BookingInfo bi on bi.SlotID=sl.id and bi.FacilityID=fac.ID)a where"+
+            " slotid not in(select slotid from BookingInfo where dateissue=@date)"+ 
             " union select * from (select s.id as sportid, sl.id as slotid, fac.id as facilityid, fac.courtname as courtname, bi.dateissue as date,"+
             " Concat(datepart(hour,TimeFrom),':00',' to ', datepart(hour,TimeTo),':00') as Time, bi.status from slots sl left join facility fac"+
             " on fac.id=sl.FacilityID left join Sports s on s.id=fac.SportID left join BookingInfo bi on bi.SlotID=sl.id and bi.FacilityID=fac.ID)a"+ 
@@ -103,6 +110,17 @@ namespace Group8b.App_Data
                     " where facilityid not in (select facilityid from BookingInfo where date=@date) and" +
                     " slotid not in(select slotid from BookingInfo where date=@date) and sportid=@sportid group by facilityid, courtname";
             cmdselectava.Connection = con;
+
+            cmdselectall = new SqlCommand();
+            cmdselectall.CommandText = "select * from bookinginfo where dateissue=@date";
+            cmdselectall.Connection = con;
+        }
+
+
+        public List<BookingInfo> GetBookingInfoes()
+        {
+            var booktrans = (from x in ctx.BookingInfoes where x.Status != "Confirmed" select x).ToList();
+            return booktrans;
         }
 
         public List<BookTrans> GetBookTrans(DateTime date,int sportid)
@@ -127,15 +145,15 @@ namespace Group8b.App_Data
                     avalist.Add(btava);
                 }
                 con.Close();
-                }
-                catch(Exception ex)
-                {
-                    throw ex;
-                }
-                finally
-                {
-                    con.Close();
-                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
             return avalist;
         }
 
@@ -177,7 +195,7 @@ namespace Group8b.App_Data
             return btlist;
         }
 
-        public void AddBookingInfo(int memid, int sportid, int facilityid, int slotid, DateTime date, string status)
+        public int AddBookingInfo(int memid, int sportid, int facilityid, int slotid, DateTime date, string status)
         {
             bi = new BookingInfo();
             bi.MemberID = memid;
@@ -188,6 +206,24 @@ namespace Group8b.App_Data
             bi.Status = status;
             ctx.AddToBookingInfoes(bi);
             ctx.SaveChanges();
+            return bi.ID;
+        }
+
+        public void UpdateBookingInfo(int id, string status)
+        {
+            BookingInfo upd = ctx.BookingInfoes.First(x => x.ID == id);
+            upd.Status = status;
+            ctx.SaveChanges();
+        }
+
+        public int GetBookingInfo(int slotid, DateTime date)
+        {
+            var booklist = (from x in ctx.BookingInfoes where x.SlotID==slotid && x.DateIssue==date.Date select x).ToList();
+            if (booklist.Count==0)
+            {
+                return 0;
+            }
+            return 1;
         }
     }
 }

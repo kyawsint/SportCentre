@@ -18,10 +18,11 @@ namespace Group8b
         SlotController slotc = new SlotController();
         BookTransController bt = new BookTransController();
         group8bEntities ctx = new group8bEntities();
+        BookTransBroker btb = new BookTransBroker();
 
         string memname, sportname, courtname;
         DateTime date;
-        int size, sportid, courtid;
+        int size, sportid, courtid, memid, bid;
 
         public BookingForm()
         {
@@ -51,11 +52,12 @@ namespace Group8b
             dgvavailable.Columns["date"].Visible = false;
         }
 
-        internal void SetBooking(string memname, string sportname, int sportid, DateTime date, int size)
+        internal void SetData(string memname, int memid, string sportname, int sportid, DateTime date, int size)
         {
             this.memname = memname;
+            this.memid = memid;
             this.sportname = sportname;
-            this.date = date;
+            this.date = date.Date;
             this.size = size;
             this.sportid = sportid;
         }
@@ -74,8 +76,8 @@ namespace Group8b
             courtid = facid;
             dgvslot.DataBindings.Clear();
             label2.Text = ddlCCourt.SelectedItem.ToString();
-
-            dgvslot.DataSource = bt.GetBookTrans(facid,date);
+            dgvslot.DataSource = bt.GetBookTrans(facid, date);
+            dgvslot.Rows[0].Selected = false;
             dgvslot.Columns["available"].Visible = false;
             dgvslot.Columns["courtname"].Visible = false;
             dgvslot.Columns["sportid"].Visible = false;
@@ -84,17 +86,23 @@ namespace Group8b
             dgvslot.Columns["date"].Visible = false;
         }
 
-        private void btnContinue_Click(object sender, EventArgs e)
+        private void btnBooking_Click(object sender, EventArgs e)
         {
             int slotid= Convert.ToInt16(dgvslot.CurrentRow.Cells["slotid"].Value.ToString());
-            bt.AddBookingInfo(3, sportid, courtid, slotid, date, "Reversed");
-            BookingInfo bi = new BookingInfo();
-            bi.MemberID = '1';
-            bi.SportID = sportid;
-            bi.FacilityID = courtid;
-            ConfirmBooking cb = new ConfirmBooking();
-            cb.SetData(memname, sportname, courtname, "9:00", size);
-            cb.ShowDialog();
+            string slottime = dgvslot.CurrentRow.Cells["time"].Value.ToString();
+            if (btb.GetBookingInfo(slotid, date)==0)
+            {
+                this.bid= bt.AddBookingInfo(3, sportid, courtid, slotid, date, "Reversed");
+                BookingInfo bi = new BookingInfo();
+                bi.MemberID = memid;
+                bi.SportID = sportid;
+                bi.FacilityID = courtid;
+                ConfirmBooking cb = new ConfirmBooking();
+                cb.SetData(bid, memname, memid, slotid, sportname, courtname, date, slottime, size);
+                DialogResult dr = cb.ShowDialog();
+                cb.Dispose();
+            }
+            else { MessageBox.Show("This is not available!"); }
         }
     }
 }

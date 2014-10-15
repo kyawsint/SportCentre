@@ -87,5 +87,11 @@ namespace Group8b
             About about = new About();
             about.ShowDialog();
         }
+
+        private void confirmBookingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfirmBookingList cbl = new ConfirmBookingList();
+            cbl.Show();
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace Group8b
         SportController sc = new SportController();
         MemberController mc = new MemberController();
 
-        int size, sportid;
+        int size, sportid, memid;
 
         public NewBooking()
         {
@@ -50,7 +50,7 @@ namespace Group8b
             BookingForm bf = new BookingForm();
             if (Convert.ToInt16(txtSize.Text) <= size)
             {
-                bf.SetBooking(txtmemname.Text, ddlSportName.SelectedItem.ToString(), sportid, dtpDate.Value, Convert.ToInt16(txtSize.Text));
+                bf.SetData(txtmemname.Text, memid, ddlSportName.SelectedItem.ToString(), sportid, dtpDate.Value.Date, Convert.ToInt16(txtSize.Text));
                 bf.Show();
                 this.Close();
             }
@@ -65,7 +65,6 @@ namespace Group8b
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            ddlSportName.Items.Clear();
             txtSize.Clear();
             lblnopeople.Visible = false;
         }
@@ -77,6 +76,17 @@ namespace Group8b
             this.size = Convert.ToInt16(sportname.Size);
             this.sportid = Convert.ToInt16(sportname.ID);
             txtSize.Text = sportname.Size.ToString();
+        }
+
+        private void txtmemname_Leave(object sender, EventArgs e)
+        {
+            SetMemberID();
+        }
+
+        private void SetMemberID()
+        {
+            var mem = mc.GetMember(txtmemname.Text);
+            this.memid = mem.ID;
         }
     }
 }

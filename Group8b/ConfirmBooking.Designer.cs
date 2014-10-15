@@ -40,9 +40,10 @@
             this.txtcourtname = new System.Windows.Forms.TextBox();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.txtDate = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +52,7 @@
             // 
             this.lblsportname.AutoSize = true;
             this.lblsportname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsportname.Location = new System.Drawing.Point(40, 82);
+            this.lblsportname.Location = new System.Drawing.Point(40, 66);
             this.lblsportname.Name = "lblsportname";
             this.lblsportname.Size = new System.Drawing.Size(89, 16);
             this.lblsportname.TabIndex = 0;
@@ -61,7 +62,7 @@
             // 
             this.lblfacility.AutoSize = true;
             this.lblfacility.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblfacility.Location = new System.Drawing.Point(40, 126);
+            this.lblfacility.Location = new System.Drawing.Point(40, 110);
             this.lblfacility.Name = "lblfacility";
             this.lblfacility.Size = new System.Drawing.Size(88, 16);
             this.lblfacility.TabIndex = 1;
@@ -71,7 +72,7 @@
             // 
             this.lbltime.AutoSize = true;
             this.lbltime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltime.Location = new System.Drawing.Point(40, 166);
+            this.lbltime.Location = new System.Drawing.Point(40, 195);
             this.lbltime.Name = "lbltime";
             this.lbltime.Size = new System.Drawing.Size(48, 16);
             this.lbltime.TabIndex = 2;
@@ -81,7 +82,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(40, 42);
+            this.label4.Location = new System.Drawing.Point(40, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 16);
             this.label4.TabIndex = 3;
@@ -91,7 +92,7 @@
             // 
             this.lblnoofpeople.AutoSize = true;
             this.lblnoofpeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnoofpeople.Location = new System.Drawing.Point(40, 203);
+            this.lblnoofpeople.Location = new System.Drawing.Point(40, 232);
             this.lblnoofpeople.Name = "lblnoofpeople";
             this.lblnoofpeople.Size = new System.Drawing.Size(89, 16);
             this.lblnoofpeople.TabIndex = 4;
@@ -99,7 +100,7 @@
             // 
             // txtmemname
             // 
-            this.txtmemname.Location = new System.Drawing.Point(181, 37);
+            this.txtmemname.Location = new System.Drawing.Point(181, 21);
             this.txtmemname.Name = "txtmemname";
             this.txtmemname.ReadOnly = true;
             this.txtmemname.Size = new System.Drawing.Size(226, 20);
@@ -107,7 +108,7 @@
             // 
             // txtsportname
             // 
-            this.txtsportname.Location = new System.Drawing.Point(181, 82);
+            this.txtsportname.Location = new System.Drawing.Point(181, 66);
             this.txtsportname.Name = "txtsportname";
             this.txtsportname.ReadOnly = true;
             this.txtsportname.Size = new System.Drawing.Size(226, 20);
@@ -115,7 +116,7 @@
             // 
             // txtnoofpeople
             // 
-            this.txtnoofpeople.Location = new System.Drawing.Point(181, 202);
+            this.txtnoofpeople.Location = new System.Drawing.Point(181, 231);
             this.txtnoofpeople.Name = "txtnoofpeople";
             this.txtnoofpeople.ReadOnly = true;
             this.txtnoofpeople.Size = new System.Drawing.Size(84, 20);
@@ -123,7 +124,7 @@
             // 
             // txttime
             // 
-            this.txttime.Location = new System.Drawing.Point(181, 166);
+            this.txttime.Location = new System.Drawing.Point(181, 195);
             this.txttime.Name = "txttime";
             this.txttime.ReadOnly = true;
             this.txttime.Size = new System.Drawing.Size(123, 20);
@@ -131,7 +132,7 @@
             // 
             // txtcourtname
             // 
-            this.txtcourtname.Location = new System.Drawing.Point(181, 126);
+            this.txtcourtname.Location = new System.Drawing.Point(181, 110);
             this.txtcourtname.Name = "txtcourtname";
             this.txtcourtname.ReadOnly = true;
             this.txtcourtname.Size = new System.Drawing.Size(158, 20);
@@ -139,33 +140,28 @@
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(269, 19);
+            this.btnConfirm.Location = new System.Drawing.Point(248, 19);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
             this.btnConfirm.TabIndex = 11;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(48, 19);
+            this.btnBack.Location = new System.Drawing.Point(76, 19);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
             this.btnBack.TabIndex = 12;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(162, 19);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 13;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblDate);
+            this.groupBox1.Controls.Add(this.txtDate);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.lblsportname);
             this.groupBox1.Controls.Add(this.lblfacility);
@@ -186,12 +182,29 @@
             // 
             this.groupBox2.Controls.Add(this.btnBack);
             this.groupBox2.Controls.Add(this.btnConfirm);
-            this.groupBox2.Controls.Add(this.btnCancel);
             this.groupBox2.Location = new System.Drawing.Point(104, 306);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(383, 63);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(40, 151);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(46, 16);
+            this.lblDate.TabIndex = 11;
+            this.lblDate.Text = "Date : ";
+            // 
+            // txtDate
+            // 
+            this.txtDate.Location = new System.Drawing.Point(181, 151);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.ReadOnly = true;
+            this.txtDate.Size = new System.Drawing.Size(123, 20);
+            this.txtDate.TabIndex = 12;
             // 
             // ConfirmBooking
             // 
@@ -224,8 +237,9 @@
         private System.Windows.Forms.TextBox txtcourtname;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.TextBox txtDate;
     }
 }

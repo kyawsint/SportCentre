@@ -48,6 +48,7 @@
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.confirmBookingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +83,7 @@
             this.addNewFacilityToolStripMenuItem,
             this.addNewSlotToolStripMenuItem});
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.newToolStripMenuItem.Text = "&New";
             // 
             // addNewMemberToolStripMenuItem
@@ -117,7 +118,7 @@
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             this.closeToolStripMenuItem.ShortcutKeyDisplayString = "Alt+F4";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.closeToolStripMenuItem.Text = "Exit";
             // 
             // bookingToolStripMenuItem
@@ -125,6 +126,7 @@
             this.bookingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.enquiryToolStripMenuItem,
             this.newBookingToolStripMenuItem,
+            this.confirmBookingToolStripMenuItem,
             this.cancelBookingToolStripMenuItem});
             this.bookingToolStripMenuItem.Name = "bookingToolStripMenuItem";
             this.bookingToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
@@ -133,21 +135,21 @@
             // enquiryToolStripMenuItem
             // 
             this.enquiryToolStripMenuItem.Name = "enquiryToolStripMenuItem";
-            this.enquiryToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.enquiryToolStripMenuItem.Text = "Enquiry";
+            this.enquiryToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.enquiryToolStripMenuItem.Text = "Check Available";
             this.enquiryToolStripMenuItem.Click += new System.EventHandler(this.enquiryToolStripMenuItem_Click);
             // 
             // newBookingToolStripMenuItem
             // 
             this.newBookingToolStripMenuItem.Name = "newBookingToolStripMenuItem";
-            this.newBookingToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.newBookingToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.newBookingToolStripMenuItem.Text = "New Booking";
             this.newBookingToolStripMenuItem.Click += new System.EventHandler(this.newBookingToolStripMenuItem_Click);
             // 
             // cancelBookingToolStripMenuItem
             // 
             this.cancelBookingToolStripMenuItem.Name = "cancelBookingToolStripMenuItem";
-            this.cancelBookingToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.cancelBookingToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.cancelBookingToolStripMenuItem.Text = "Cancel Booking";
             this.cancelBookingToolStripMenuItem.Click += new System.EventHandler(this.cancelBookingToolStripMenuItem_Click);
             // 
@@ -165,28 +167,28 @@
             // memberToolStripMenuItem
             // 
             this.memberToolStripMenuItem.Name = "memberToolStripMenuItem";
-            this.memberToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.memberToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.memberToolStripMenuItem.Text = "Member";
             this.memberToolStripMenuItem.Click += new System.EventHandler(this.memberToolStripMenuItem_Click);
             // 
             // sportToolStripMenuItem
             // 
             this.sportToolStripMenuItem.Name = "sportToolStripMenuItem";
-            this.sportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sportToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.sportToolStripMenuItem.Text = "Sport";
             this.sportToolStripMenuItem.Click += new System.EventHandler(this.sportToolStripMenuItem_Click);
             // 
             // facilityToolStripMenuItem
             // 
             this.facilityToolStripMenuItem.Name = "facilityToolStripMenuItem";
-            this.facilityToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.facilityToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.facilityToolStripMenuItem.Text = "Facility";
             this.facilityToolStripMenuItem.Click += new System.EventHandler(this.facilityToolStripMenuItem_Click);
             // 
             // slotToolStripMenuItem
             // 
             this.slotToolStripMenuItem.Name = "slotToolStripMenuItem";
-            this.slotToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.slotToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.slotToolStripMenuItem.Text = "Slot";
             this.slotToolStripMenuItem.Click += new System.EventHandler(this.slotToolStripMenuItem_Click);
             // 
@@ -207,9 +209,16 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // confirmBookingToolStripMenuItem
+            // 
+            this.confirmBookingToolStripMenuItem.Name = "confirmBookingToolStripMenuItem";
+            this.confirmBookingToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.confirmBookingToolStripMenuItem.Text = "Confirm Booking";
+            this.confirmBookingToolStripMenuItem.Click += new System.EventHandler(this.confirmBookingToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -249,5 +258,6 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enquiryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem confirmBookingToolStripMenuItem;
     }
 }

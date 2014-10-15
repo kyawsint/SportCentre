@@ -37,12 +37,11 @@
             this.btnContinue = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.gb1 = new System.Windows.Forms.GroupBox();
-            this.gb2 = new System.Windows.Forms.GroupBox();
-            this.dtpDate = new System.Windows.Forms.DateTimePicker();
-            this.lblnopeople = new System.Windows.Forms.Label();
-            this.lblmemname = new System.Windows.Forms.Label();
             this.txtmemname = new System.Windows.Forms.TextBox();
-            this.btnmemname = new System.Windows.Forms.Button();
+            this.lblmemname = new System.Windows.Forms.Label();
+            this.lblnopeople = new System.Windows.Forms.Label();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.gb2 = new System.Windows.Forms.GroupBox();
             this.gb1.SuspendLayout();
             this.gb2.SuspendLayout();
             this.SuspendLayout();
@@ -126,7 +125,6 @@
             // 
             // gb1
             // 
-            this.gb1.Controls.Add(this.btnmemname);
             this.gb1.Controls.Add(this.txtmemname);
             this.gb1.Controls.Add(this.lblmemname);
             this.gb1.Controls.Add(this.lblnopeople);
@@ -142,33 +140,13 @@
             this.gb1.TabIndex = 9;
             this.gb1.TabStop = false;
             // 
-            // gb2
+            // txtmemname
             // 
-            this.gb2.Controls.Add(this.btnContinue);
-            this.gb2.Controls.Add(this.btnReset);
-            this.gb2.Location = new System.Drawing.Point(184, 346);
-            this.gb2.Name = "gb2";
-            this.gb2.Size = new System.Drawing.Size(302, 69);
-            this.gb2.TabIndex = 10;
-            this.gb2.TabStop = false;
-            // 
-            // dtpDate
-            // 
-            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDate.Location = new System.Drawing.Point(233, 144);
-            this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(130, 20);
-            this.dtpDate.TabIndex = 5;
-            // 
-            // lblnopeople
-            // 
-            this.lblnopeople.AutoSize = true;
-            this.lblnopeople.Location = new System.Drawing.Point(340, 194);
-            this.lblnopeople.Name = "lblnopeople";
-            this.lblnopeople.Size = new System.Drawing.Size(35, 13);
-            this.lblnopeople.TabIndex = 7;
-            this.lblnopeople.Text = "label1";
-            this.lblnopeople.Visible = false;
+            this.txtmemname.Location = new System.Drawing.Point(233, 43);
+            this.txtmemname.Name = "txtmemname";
+            this.txtmemname.Size = new System.Drawing.Size(209, 20);
+            this.txtmemname.TabIndex = 9;
+            this.txtmemname.Leave += new System.EventHandler(this.txtmemname_Leave);
             // 
             // lblmemname
             // 
@@ -180,21 +158,33 @@
             this.lblmemname.TabIndex = 8;
             this.lblmemname.Text = "Member Name : ";
             // 
-            // txtmemname
+            // lblnopeople
             // 
-            this.txtmemname.Location = new System.Drawing.Point(233, 43);
-            this.txtmemname.Name = "txtmemname";
-            this.txtmemname.Size = new System.Drawing.Size(209, 20);
-            this.txtmemname.TabIndex = 9;
+            this.lblnopeople.AutoSize = true;
+            this.lblnopeople.Location = new System.Drawing.Point(340, 194);
+            this.lblnopeople.Name = "lblnopeople";
+            this.lblnopeople.Size = new System.Drawing.Size(35, 13);
+            this.lblnopeople.TabIndex = 7;
+            this.lblnopeople.Text = "label1";
+            this.lblnopeople.Visible = false;
             // 
-            // btnmemname
+            // dtpDate
             // 
-            this.btnmemname.Location = new System.Drawing.Point(448, 41);
-            this.btnmemname.Name = "btnmemname";
-            this.btnmemname.Size = new System.Drawing.Size(34, 23);
-            this.btnmemname.TabIndex = 10;
-            this.btnmemname.Text = "...";
-            this.btnmemname.UseVisualStyleBackColor = true;
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDate.Location = new System.Drawing.Point(233, 144);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(130, 20);
+            this.dtpDate.TabIndex = 5;
+            // 
+            // gb2
+            // 
+            this.gb2.Controls.Add(this.btnContinue);
+            this.gb2.Controls.Add(this.btnReset);
+            this.gb2.Location = new System.Drawing.Point(184, 346);
+            this.gb2.Name = "gb2";
+            this.gb2.Size = new System.Drawing.Size(302, 69);
+            this.gb2.TabIndex = 10;
+            this.gb2.TabStop = false;
             // 
             // NewBooking
             // 
@@ -230,7 +220,6 @@
         private System.Windows.Forms.GroupBox gb2;
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.Label lblnopeople;
-        private System.Windows.Forms.Button btnmemname;
         private System.Windows.Forms.TextBox txtmemname;
         private System.Windows.Forms.Label lblmemname;
     }

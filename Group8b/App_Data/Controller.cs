@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Group8b.App_Data;
+using System.Text.RegularExpressions;
 
 namespace Group8b.App_Data
 {
@@ -69,9 +70,24 @@ namespace Group8b.App_Data
             return bt.GetBookTrans(date, sportid);
         }
 
-        public void AddBookingInfo(int memid, int sportid, int facilityid, int slotid, DateTime date, string status)
+        public List<BookingInfo> GetBookingInfoes()
         {
-            bt.AddBookingInfo(memid, sportid, facilityid, slotid, date, status);
+            return bt.GetBookingInfoes();
+        }
+
+        public void UpdateBookingInfo(int id, string status)
+        {
+            bt.UpdateBookingInfo(id, status);
+        }
+
+        public int AddBookingInfo(int memid, int sportid, int facilityid, int slotid, DateTime date, string status)
+        {
+            return bt.AddBookingInfo(memid, sportid, facilityid, slotid, date, status);
+        }
+
+        public int GetBookingInfo(int slotid, DateTime date)
+        {
+            return bt.GetBookingInfo(slotid, date);
         }
     }
 
@@ -82,6 +98,12 @@ namespace Group8b.App_Data
         public List<Member> GetMembers()
         {
             return mb.GetMembers();
+        }
+
+        public Member GetMember(string name)
+        {
+            Member m = mb.GetMember(Regex.Split(name, "\r\n")[0]);
+            return m;
         }
     }
 }

@@ -30,8 +30,13 @@
         {
             this.btnBack = new System.Windows.Forms.Button();
             this.gb2 = new System.Windows.Forms.GroupBox();
-            this.btnContinue = new System.Windows.Forms.Button();
+            this.btnBooking = new System.Windows.Forms.Button();
             this.gb1 = new System.Windows.Forms.GroupBox();
+            this.txtsportname = new System.Windows.Forms.TextBox();
+            this.txtnoofpeople = new System.Windows.Forms.TextBox();
+            this.txtdate = new System.Windows.Forms.TextBox();
+            this.txtmemname = new System.Windows.Forms.TextBox();
+            this.lblmemname = new System.Windows.Forms.Label();
             this.lblSportName = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblSize = new System.Windows.Forms.Label();
@@ -41,12 +46,6 @@
             this.dgvavailable = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblmemname = new System.Windows.Forms.Label();
-            this.txtmemname = new System.Windows.Forms.TextBox();
-            this.txtdate = new System.Windows.Forms.TextBox();
-            this.txtnoofpeople = new System.Windows.Forms.TextBox();
-            this.txtsportname = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.gb2.SuspendLayout();
             this.gb1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvslot)).BeginInit();
@@ -65,7 +64,7 @@
             // 
             // gb2
             // 
-            this.gb2.Controls.Add(this.btnContinue);
+            this.gb2.Controls.Add(this.btnBooking);
             this.gb2.Controls.Add(this.btnBack);
             this.gb2.Location = new System.Drawing.Point(230, 450);
             this.gb2.Name = "gb2";
@@ -73,15 +72,15 @@
             this.gb2.TabIndex = 12;
             this.gb2.TabStop = false;
             // 
-            // btnContinue
+            // btnBooking
             // 
-            this.btnContinue.Location = new System.Drawing.Point(176, 30);
-            this.btnContinue.Name = "btnContinue";
-            this.btnContinue.Size = new System.Drawing.Size(75, 23);
-            this.btnContinue.TabIndex = 7;
-            this.btnContinue.Text = "Booking";
-            this.btnContinue.UseVisualStyleBackColor = true;
-            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
+            this.btnBooking.Location = new System.Drawing.Point(176, 30);
+            this.btnBooking.Name = "btnBooking";
+            this.btnBooking.Size = new System.Drawing.Size(75, 23);
+            this.btnBooking.TabIndex = 7;
+            this.btnBooking.Text = "Booking";
+            this.btnBooking.UseVisualStyleBackColor = true;
+            this.btnBooking.Click += new System.EventHandler(this.btnBooking_Click);
             // 
             // gb1
             // 
@@ -98,6 +97,48 @@
             this.gb1.Size = new System.Drawing.Size(477, 134);
             this.gb1.TabIndex = 11;
             this.gb1.TabStop = false;
+            // 
+            // txtsportname
+            // 
+            this.txtsportname.Location = new System.Drawing.Point(145, 47);
+            this.txtsportname.Name = "txtsportname";
+            this.txtsportname.ReadOnly = true;
+            this.txtsportname.Size = new System.Drawing.Size(220, 20);
+            this.txtsportname.TabIndex = 12;
+            // 
+            // txtnoofpeople
+            // 
+            this.txtnoofpeople.Location = new System.Drawing.Point(145, 102);
+            this.txtnoofpeople.Name = "txtnoofpeople";
+            this.txtnoofpeople.ReadOnly = true;
+            this.txtnoofpeople.Size = new System.Drawing.Size(72, 20);
+            this.txtnoofpeople.TabIndex = 11;
+            // 
+            // txtdate
+            // 
+            this.txtdate.Location = new System.Drawing.Point(145, 73);
+            this.txtdate.Name = "txtdate";
+            this.txtdate.ReadOnly = true;
+            this.txtdate.Size = new System.Drawing.Size(163, 20);
+            this.txtdate.TabIndex = 10;
+            // 
+            // txtmemname
+            // 
+            this.txtmemname.Location = new System.Drawing.Point(145, 16);
+            this.txtmemname.Name = "txtmemname";
+            this.txtmemname.ReadOnly = true;
+            this.txtmemname.Size = new System.Drawing.Size(220, 20);
+            this.txtmemname.TabIndex = 9;
+            // 
+            // lblmemname
+            // 
+            this.lblmemname.AutoSize = true;
+            this.lblmemname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmemname.Location = new System.Drawing.Point(20, 16);
+            this.lblmemname.Name = "lblmemname";
+            this.lblmemname.Size = new System.Drawing.Size(107, 16);
+            this.lblmemname.TabIndex = 8;
+            this.lblmemname.Text = "Member Name : ";
             // 
             // lblSportName
             // 
@@ -185,63 +226,11 @@
             this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 18;
             // 
-            // lblmemname
-            // 
-            this.lblmemname.AutoSize = true;
-            this.lblmemname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmemname.Location = new System.Drawing.Point(20, 16);
-            this.lblmemname.Name = "lblmemname";
-            this.lblmemname.Size = new System.Drawing.Size(107, 16);
-            this.lblmemname.TabIndex = 8;
-            this.lblmemname.Text = "Member Name : ";
-            // 
-            // txtmemname
-            // 
-            this.txtmemname.Location = new System.Drawing.Point(145, 16);
-            this.txtmemname.Name = "txtmemname";
-            this.txtmemname.ReadOnly = true;
-            this.txtmemname.Size = new System.Drawing.Size(220, 20);
-            this.txtmemname.TabIndex = 9;
-            // 
-            // txtdate
-            // 
-            this.txtdate.Location = new System.Drawing.Point(145, 73);
-            this.txtdate.Name = "txtdate";
-            this.txtdate.ReadOnly = true;
-            this.txtdate.Size = new System.Drawing.Size(163, 20);
-            this.txtdate.TabIndex = 10;
-            // 
-            // txtnoofpeople
-            // 
-            this.txtnoofpeople.Location = new System.Drawing.Point(145, 102);
-            this.txtnoofpeople.Name = "txtnoofpeople";
-            this.txtnoofpeople.ReadOnly = true;
-            this.txtnoofpeople.Size = new System.Drawing.Size(72, 20);
-            this.txtnoofpeople.TabIndex = 11;
-            // 
-            // txtsportname
-            // 
-            this.txtsportname.Location = new System.Drawing.Point(145, 47);
-            this.txtsportname.Name = "txtsportname";
-            this.txtsportname.ReadOnly = true;
-            this.txtsportname.Size = new System.Drawing.Size(220, 20);
-            this.txtsportname.TabIndex = 12;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(453, 160);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "label3";
-            // 
             // BookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 517);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvavailable);
@@ -267,7 +256,7 @@
 
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.GroupBox gb2;
-        private System.Windows.Forms.Button btnContinue;
+        private System.Windows.Forms.Button btnBooking;
         private System.Windows.Forms.GroupBox gb1;
         private System.Windows.Forms.Label lblSportName;
         private System.Windows.Forms.Label lblDate;
@@ -283,6 +272,5 @@
         private System.Windows.Forms.TextBox txtnoofpeople;
         private System.Windows.Forms.TextBox txtdate;
         private System.Windows.Forms.TextBox txtmemname;
-        private System.Windows.Forms.Label label3;
     }
 }

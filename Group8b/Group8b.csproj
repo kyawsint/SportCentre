@@ -106,6 +106,12 @@
     <Compile Include="ConfirmBooking.Designer.cs">
       <DependentUpon>ConfirmBooking.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConfirmBookingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmBookingList.Designer.cs">
+      <DependentUpon>ConfirmBookingList.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditFacility.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConfirmBooking.resx">
       <DependentUpon>ConfirmBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfirmBookingList.resx">
+      <DependentUpon>ConfirmBookingList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditFacility.resx">
       <DependentUpon>EditFacility.cs</DependentUpon>

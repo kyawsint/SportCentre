@@ -102,7 +102,7 @@ namespace Group8b
             
             sc.DeleteSport(id, s);
             MessageBox.Show("Succesfully!");
-            this.DialogResult = DialogResult.OK;
+            ShowSports();
         }
 
         

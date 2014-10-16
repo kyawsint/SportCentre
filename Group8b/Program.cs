@@ -15,7 +15,7 @@ namespace Group8b
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ViewSlot());
+            Application.Run(new Login());
         }
     }
 }

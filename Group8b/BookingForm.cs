@@ -92,7 +92,7 @@ namespace Group8b
             string slottime = dgvslot.CurrentRow.Cells["time"].Value.ToString();
             if (btb.GetBookingInfo(slotid, date)==0)
             {
-                this.bid= bt.AddBookingInfo(3, sportid, courtid, slotid, date, "Reversed");
+                this.bid= bt.AddBookingInfo(memid, sportid, courtid, slotid, date, "Reversed");
                 BookingInfo bi = new BookingInfo();
                 bi.MemberID = memid;
                 bi.SportID = sportid;

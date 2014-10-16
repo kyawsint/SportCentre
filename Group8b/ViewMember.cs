@@ -74,6 +74,12 @@ namespace Group8b
             App_Data.Member mm = context3.Members.Where(p=>p.ID == m.ID).Single();
             context3.Members.DeleteObject(mm);
             context3.SaveChanges();
+            group8bEntities ctx = new group8bEntities();
+            dataGridView1.DataSource = ctx.Members;
+
+            dataGridView1.Rows[0].Selected = false;
+            dataGridView1.Columns["id"].Visible = false;
+            dataGridView1.Columns["bookinginfoes"].Visible = false;
         }
 
         private void Member_Load(object sender, EventArgs e)

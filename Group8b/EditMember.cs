@@ -34,7 +34,7 @@ namespace Group8b
 
         private void EditMember_Load(object sender, EventArgs e)
         {
-            textBoxN.Text = Name;
+            textBoxN.Text = name;
             textBoxA.Text = Address;
             textBoxPC.Text = PostalCode;
             textBoxPN.Text = PhoneNumber;

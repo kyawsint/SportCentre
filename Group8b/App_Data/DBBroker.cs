@@ -296,7 +296,7 @@ namespace Group8b.App_Data
             bi.SportID = sportid;
             bi.FacilityID = facilityid;
             bi.SlotID = slotid;
-            bi.DateIssue = date;
+            bi.DateIssue = date.Date;
             bi.Status = status;
             ctx.AddToBookingInfoes(bi);
             ctx.SaveChanges();
@@ -312,7 +312,7 @@ namespace Group8b.App_Data
 
         public int GetBookingInfo(int slotid, DateTime date)
         {
-            var booklist = (from x in ctx.BookingInfoes where x.SlotID==slotid && x.DateIssue==date.Date select x).ToList();
+            var booklist = (from x in ctx.BookingInfoes where x.SlotID==slotid && x.DateIssue==date select x).ToList();
             if (booklist.Count==0)
             {
                 return 0;

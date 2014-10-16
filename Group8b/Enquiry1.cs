@@ -38,7 +38,7 @@ namespace Group8b
             int currentY = 120;
             int startTime = 9;
             //time
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 10; i++)
             {
                 currentX = startX + i * buttonWidth;
                 currentY = startY - buttonHeight;
@@ -89,7 +89,7 @@ namespace Group8b
                                  select n;
 
                     //time
-                    for (int j = 0; j <9; j++)
+                    for (int j = 0; j <10; j++)
                     { 
 
                         currentX = startX + j * buttonWidth;
@@ -160,6 +160,11 @@ namespace Group8b
         private void label7_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnback_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

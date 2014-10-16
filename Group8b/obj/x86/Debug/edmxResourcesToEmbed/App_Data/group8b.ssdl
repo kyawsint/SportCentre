@@ -93,9 +93,6 @@
     <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="25" />
     <Property Name="ConfirmPassword" Type="nvarchar" Nullable="false" MaxLength="25" />
   </EntityType>
-  <!--Errors Found During Generation:
-      warning 6002: The table/view 'group8b.dbo.fac_slot' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
   <Association Name="BookingInfo_Facitliy_FK">
     <End Role="Facility" Type="group8bModel.Store.Facility" Multiplicity="1" />
     <End Role="BookingInfo" Type="group8bModel.Store.BookingInfo" Multiplicity="*" />
@@ -172,8 +169,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="Sprtlogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="Usename" Type="varchar" Mode="In" />
-    <Parameter Name="Password" Type="varchar" Mode="In" />
-  </Function>
 </Schema>

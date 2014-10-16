@@ -72,5 +72,10 @@ namespace Group8b
         {
             dgvCBooking.DataSource = btc.GetBookingInfoes(dtpDate.Value.Date);
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

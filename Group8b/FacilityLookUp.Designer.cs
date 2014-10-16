@@ -44,6 +44,7 @@
             this.btCancle.TabIndex = 5;
             this.btCancle.Text = "Cancel";
             this.btCancle.UseVisualStyleBackColor = true;
+            this.btCancle.Click += new System.EventHandler(this.btCancle_Click);
             // 
             // btOK
             // 

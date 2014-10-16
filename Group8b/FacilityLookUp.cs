@@ -37,5 +37,10 @@ namespace Group8b
         {
             this.DialogResult = DialogResult.OK;
         }
+
+        private void btCancle_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
     }
 }

@@ -46,26 +46,17 @@ namespace Group8b
         {
             group8bEntities context = new group8bEntities();
 
+            string cname=Regex.Split(txtCourtname.Text,"\r\n")[0];
             var q = from s in context.Slots
-                    where s.Facility.CourtName == txtCourtname.Text
+                    where s.Facility.CourtName == cname
                     select s;
-            //string fID = Convert.ToString(Regex.Split(textBox1.Text, "\r\n")[0]);
-            //int facilityID = Convert.ToInt32(fID);
-            //var q = from s in context.Slots
-            //        where s.FacilityID == facilityID
-            //        select s;
 
             dataGridView1.DataSource = q.ToList();
         }
 
         private void Slot_Load(object sender, EventArgs e)
         {
-            group8bEntities ctx = new group8bEntities();
-            var slotlist = sc.GetSlot();
-            dataGridView1.DataSource = slotlist;
-            dataGridView1.Columns["id"].Visible = false;
-            dataGridView1.Columns["facility"].Visible = false;
-            dataGridView1.Columns["bookinginfoes"].Visible = false;
+            var slotlist = ShowData();
 
             var source = new AutoCompleteStringCollection();
             foreach (App_Data.Slot s in slotlist)
@@ -77,6 +68,18 @@ namespace Group8b
             txtCourtname.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             txtCourtname.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
+        }
+
+        private List<Slot> ShowData()
+        {
+            group8bEntities ctx = new group8bEntities();
+            var slotlist = sc.GetSlot();
+            dataGridView1.DataSource = slotlist;
+            //dataGridView1.Rows[0].Selected = false;
+            dataGridView1.Columns["id"].Visible = false;
+            dataGridView1.Columns["facility"].Visible = false;
+            dataGridView1.Columns["bookinginfoes"].Visible = false;
+            return slotlist;
         }
 
 
@@ -94,6 +97,7 @@ namespace Group8b
             App_Data.Slot ss = context3.Slots.Where(p => p.ID == s.ID).Single();
             context3.Slots.DeleteObject(ss);
             context3.SaveChanges();
+            var slotlist = ShowData();
         }
     }
 

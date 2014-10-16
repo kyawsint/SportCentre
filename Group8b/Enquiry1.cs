@@ -24,21 +24,21 @@ namespace Group8b
             List<App_Data.Facility> infos = new List<App_Data.Facility>();
             group8bEntities entities = new group8bEntities();
 
-            int buttonWidth = 45;
+            int buttonWidth = 60;
             int buttonHeight = 23;
-            int startX = 50;
-            int startY = 30;
+            int startX = 100;
+            int startY = 100;
 
             Button b = null;
 
             Label label = null;
             DateTime today = DateTime.Today;
 
-            int currentX = 0;
-            int currentY = 0;
+            int currentX = 200;
+            int currentY = 120;
             int startTime = 9;
-
-            for (int i = 0; i < 3; i++)
+            //time
+            for (int i = 0; i < 9; i++)
             {
                 currentX = startX + i * buttonWidth;
                 currentY = startY - buttonHeight;
@@ -61,7 +61,7 @@ namespace Group8b
 
 
             int k = 0;
-
+            //courtname
             foreach (var j in court)
             {
                 currentX = startX - buttonWidth;
@@ -78,9 +78,9 @@ namespace Group8b
            
 
             var faci = entities.Facilities.First(x => x.SportID == number);
-
+            //button
             int t = (int)faci.ID-1;
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < k; i++)
                 {
                     
                     t++;
@@ -88,10 +88,11 @@ namespace Group8b
                                  where n.SportID == number && n.FacilityID == t
                                  select n;
 
-                    for (int j = 0; j <3; j++)
+                    //time
+                    for (int j = 0; j <9; j++)
                     { 
 
-                        currentX = 50 + j * buttonWidth;
+                        currentX = startX + j * buttonWidth;
                         currentY = startY + i* buttonHeight;
                         b = new Button();
                         b.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
@@ -125,13 +126,7 @@ namespace Group8b
                         }
                     }
                 }
-         
-
-
-
-
-
-
+        
 
 }
         

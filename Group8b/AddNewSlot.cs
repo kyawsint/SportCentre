@@ -32,26 +32,27 @@ namespace Group8b
             App_Data.Slot s2 = new App_Data.Slot();
 
             s2.FacilityID = Convert.ToInt32(textBoxANSFID.Text);
-            s2.TimeFrom = dateTimePicker1.Value.Date.TimeOfDay;
-            s2.TimeTo = dateTimePicker2.Value.Date.TimeOfDay;
+            s2.TimeFrom = dateTimePicker1.Value.TimeOfDay;
+            s2.TimeTo = dateTimePicker2.Value.TimeOfDay;
 
             context.AddToSlots(s2);
             context.SaveChanges();
             lblsuccess.Text = "Successfully!";
+            this.Close();
         }
 
         private void AddNewSlot_Load(object sender, EventArgs e)
         {
-            var source = new AutoCompleteStringCollection();
-            var slotlist = sc.GetSlot();
-            foreach (App_Data.Slot s in slotlist)
-            {
-                source.AddRange(new string[] { s.FacilityID + Environment.NewLine });
-            }
+            //var source = new AutoCompleteStringCollection();
+            //var slotlist = sc.GetSlot();
+            //foreach (App_Data.Slot s in slotlist)
+            //{
+            //    source.AddRange(new string[] { s.FacilityID + Environment.NewLine });
+            //}
 
-            textBoxANSFID.AutoCompleteCustomSource = source;
-            textBoxANSFID.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            textBoxANSFID.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            //textBoxANSFID.AutoCompleteCustomSource = source;
+            //textBoxANSFID.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            //textBoxANSFID.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
         }
 

@@ -30,3 +30,4 @@ D:\ISS Workshop\github\CACS\sportcentre\Group8b\obj\x86\Debug\Group8b.ViewFacili
 D:\ISS Workshop\github\CACS\sportcentre\Group8b\obj\x86\Debug\Group8b.ViewSport.resources
 D:\ISS Workshop\github\CACS\sportcentre\Group8b\obj\x86\Debug\Group8b.SportLookUp.resources
 D:\ISS Workshop\github\CACS\sportcentre\Group8b\obj\x86\Debug\Group8b.FacilityLookUp.resources
+D:\ISS Workshop\github\CACS\sportcentre\Group8b\obj\x86\Debug\Group8b.csprojResolveAssemblyReference.cache
